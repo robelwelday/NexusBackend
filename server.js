@@ -35,6 +35,11 @@ app.use('/api/comments', commentRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/contact', contactRoutes); // Add contact route
 
+// Root route for health checks or basic access
+app.get('/', (req, res) => {
+  res.json({ message: 'API is running' });
+});
+
 // Error Handling
 app.use(notFound);
 app.use(errorHandler);
